@@ -1,0 +1,32 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n; 
+    cin >> n;
+    vector<int> a(n);
+    vector<int> b(n+1);
+    
+    for(int i=0; i<n; i++){
+        cin >> a[i];
+    }
+    for(int i=0; i<n+1; i++){
+        cin >> b[i];
+    }
+    for(int i=0; i<n+1; i++){
+        for(int j=0; j<n; j++){
+            if(b[i]==a[j]) break;
+            if(j==n-1) {
+                cout << b[i];
+                return 0;
+            }
+        }
+    }
+    return 0;
+}
