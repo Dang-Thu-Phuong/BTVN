@@ -1,0 +1,48 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool isSafe(vector<string>& arr, int x, int y) {
+    int n = arr.size();
+    int m = arr[0].size();
+
+    return arr[x][y] == 'E';
+}
+
+
+bool canEscape(vector<string>& arr, int x, int y) {
+    int n = arr.size();
+    int m = arr[0].size();
+
+    if (x == n - 1) return true;
+
+    if (isSafe(arr, x + 1, y) ||  isSafe(arr, x + 1, y - 1)||  isSafe(arr, x + 1, y + 1)) {
+        return canEscape(arr, x + 1, y) ||  canEscape(arr, x + 1, y - 1) || canEscape(arr, x + 1, y + 1);
+    }
+    return false;
+}
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n, m;
+    cin >> n >> m;
+    vector<string> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+
+    for (int j = 0; j < m; ++j) {
+        if (arr[0][j] == 'E' && canEscape(arr, 0, j)) {
+            cout << "YES";
+            return 0;
+
+        }
+    }
+    cout << "NO";
+
+    return 0;
+}
