@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int selectNumber(int x, int y){
+    return (x+y)/2;
+
+}
+
+char getHostAnswer(int X){
+    char answer;
+    cout << "Is " << X << " your number? ";
+    cin >> answer;
+    return answer;
+}
+
+int main()
+{
+    int low=1, high=100;
+    int a;
+    cin >> a;
+    cout << "secretNumber" <<a;
+
+    int X=0;
+    char answer;
+    do {
+        X = selectNumber(low, high);
+        answer = getHostAnswer(X);
+        if (answer == '>') high = X-1; // X lớn hơn nên giảm high
+        if (answer == '<') low = X+1; // X nhỏ hơn nên tăng low
+    } while (answer != '=');
+    cout << "Congratulation! You win." << endl;
+
+    return 0;
+}
