@@ -21,7 +21,6 @@ string kangaroo(int x1, int v1, int x2, int v2) {
     int a=(x1-x2)/(v2-v1);
     if(a<0 || (v2==v1 && x1!= x2)) return "NO";
     else return "YES";
-
 }
 
 int main()
