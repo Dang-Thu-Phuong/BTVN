@@ -36,7 +36,7 @@ int main() {
     }
 
     for (int j = 0; j < m; ++j) {
-        if (arr[0][j] == 'E' && canEscape(arr, 0, j)) {
+        if (canEscape(arr, 0, j)) {
             cout << "YES";
             return 0;
 
