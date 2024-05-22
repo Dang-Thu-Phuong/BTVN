@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int main(){
+    char letters[]={'a','b','c','d'};
+    int length=3;
+    int num_letter=sizeof(letters)/sizeof(letters[0]);
+    for(int i=0;i<num_letter;++i){
+        for(int j=0;j<num_letter;++j){
+            for(int k=0;k<num_letter;++k){
+                cout<<letters[i]<<letters[j]<<letters[k]<<endl;
+            }
+        }
+    }
+    return 0;
+}
